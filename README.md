@@ -1,6 +1,6 @@
 ## Shotgunner
 ![Gem](https://img.shields.io/gem/dt/shotgunner.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/restaurant-cheetah/shotgunner.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/shotgunner.svg)
 ![Gem](https://img.shields.io/gem/v/shotgunner.svg)
 
 1. Define options for parallel call
