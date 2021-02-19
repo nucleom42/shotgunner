@@ -1,5 +1,6 @@
 Gem::Specification.new do |s|
   s.author = ["Oleg Saltykov"]
+  s.homepage = "https://github.com/nucleom42/shotgunner"
   s.name = %q{shotgunner}
   s.version = "0.1.0"
   s.date = %q{2021-02-18}

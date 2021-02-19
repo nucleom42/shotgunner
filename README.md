@@ -1,7 +1,7 @@
 ## Shotgunner
-![Gem]()
-![GitHub last commit]()
-![Gem]()
+![Gem](https://img.shields.io/gem/dt/shotgunner.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/restaurant-cheetah/shotgunner.svg)
+![Gem](https://img.shields.io/gem/v/shotgunner.svg)
 
 1. Define options for parallel call
 2. Yield api caller into the run method.

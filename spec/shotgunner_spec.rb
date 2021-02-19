@@ -35,7 +35,11 @@ describe Shotgunner::Parallel do
           expect { klass.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) } }
             .to change(tasks_array, :count).from(2).to(0)
         end
+        it 'runs in parallel' do
+          #TODO
+        end
       end
+      
       context 'when run with options' do
         #TODO
       end
