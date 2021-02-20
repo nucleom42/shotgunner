@@ -25,12 +25,15 @@ class Service
 
   class << self
     def some_cool_logic
-      data = urls_to_be_fetched = [URI('http://example.com/index.html?count=10'), URI('http://example.com/index.html?count=20')]
-      run tasks: urls_to_be_fetched, threads: 6 do |uri|
+      urls_to_be_fetched = [URI('http://example.com/index.html?count=10'),
+                            URI('http://example.com/index.html?count=20')]
+      data = run tasks: urls_to_be_fetched, threads: 6 do |uri|
         Net::HTTP.get(uri)
       end
       
       ## do everything you need with received data array
+      data.map{|j| JSON.parse(j)}
+
     end
   end
 end
