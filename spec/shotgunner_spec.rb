@@ -12,6 +12,25 @@ describe Shotgunner::Parallel do
       it 'responds to the method' do
         expect(object).to respond_to(:run)
       end
+
+      context 'when run with tasks array' do
+        let(:tasks_array) do
+          [URI('http://example.com/index.html?count=10'), URI('http://example.com/index.html?count=20')]
+        end
+
+        it 'returns result array' do
+          expect(object.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) }.count).to eq 2
+        end
+
+        it 'pull out tasks_array' do
+          expect { object.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) } }
+            .to change(tasks_array, :count).from(2).to(0)
+        end
+
+        it 'runs in parallel' do
+          #TODO
+        end
+      end
     end
   end
 
@@ -35,6 +54,7 @@ describe Shotgunner::Parallel do
           expect { klass.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) } }
             .to change(tasks_array, :count).from(2).to(0)
         end
+        
         it 'runs in parallel' do
           #TODO
         end

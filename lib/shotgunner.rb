@@ -9,7 +9,7 @@ module Shotgunner
 
     module InstanceMethods
       def run(options = {}, &block)
-        self.class.call(options, &block)
+        self.class.run(options, &block)
       end
     end
 
