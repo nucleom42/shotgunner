@@ -17,7 +17,7 @@ module Shotgunner
       def run(options = {}, &block)
         mutex = Mutex.new
         threads = options[:threads] || 4
-        tasks = options[:tasks] || []
+        tasks = options[:tasks]&.dup || []
         raise ArgumentError, 'There is no tasks array defined!' if tasks.empty?
         call_results = []
         threads.times.map do

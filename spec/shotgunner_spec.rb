@@ -22,9 +22,9 @@ describe Shotgunner::Parallel do
           expect(object.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) }.count).to eq 2
         end
 
-        it 'pull out tasks_array' do
+        it 'keeps tasks_array' do
           expect { object.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) } }
-            .to change(tasks_array, :count).from(2).to(0)
+            .not_to change(tasks_array, :count)
         end
 
         it 'runs in parallel' do
@@ -50,9 +50,9 @@ describe Shotgunner::Parallel do
           expect(klass.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) }.count).to eq 2
         end
         
-        it 'pull out tasks_array' do
+        it 'keeps tasks_array' do
           expect { klass.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) } }
-            .to change(tasks_array, :count).from(2).to(0)
+            .not_to change(tasks_array, :count)
         end
         
         it 'runs in parallel' do
