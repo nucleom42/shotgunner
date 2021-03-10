@@ -4,10 +4,24 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/nucleom42/shotgunner.svg)
 ![Gem](https://img.shields.io/gem/v/shotgunner.svg)
 
+**Problem:**
+
+* If there is a necessity to fetch data from external APIs. And it is expected to be a long way, because of quantity of links needed to be obtained.
+
+**Solution:**
+
 1. Define options for parallel call
 2. Yield api caller into the run method.
-3. Enjoy shotgun's unstoppable performance of retrieving data :)
+3. Get your data up to 3 times faster than traditional queueing approach of fetching.
 4. Use assembled result's array.
+
+**Notes:**
+
+Calls performed based on thread pooling. Result data is unsorted.
+
+**TODO:**
+
+* make result data sorted
 
 ## Install
 
