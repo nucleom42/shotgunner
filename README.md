@@ -35,9 +35,10 @@ class Service
 
   class << self
     def some_cool_logic
-      urls_to_be_fetched = [URI('http://example.com/index.html?page=1'),
-                            URI('http://example.com/index.html?page=2'),
-                            URI('http://example.com/index.html?page=3')]
+      urls_to_be_fetched =
+        [URI('http://example.com/index.html?page=1'),
+         URI('http://example.com/index.html?page=2'),
+         URI('http://example.com/index.html?page=3')]
       
       data = run tasks: urls_to_be_fetched, threads: 6 do |uri|
         Net::HTTP.get(uri)
