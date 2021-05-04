@@ -35,7 +35,7 @@ module Shotgunner
       
       def validate_params(tasks, threads)
         raise ArgumentError, 'There is no tasks array defined!' if tasks.empty?
-        raise ArgumentError, 'Invalid threads number' if threads == (1..100)
+        raise ArgumentError, 'Invalid threads number, please select number from 1..100' unless threads&.between?(1, 100)
       end
 
       def initiate(options)
