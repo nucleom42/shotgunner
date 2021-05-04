@@ -13,15 +13,11 @@
 1. Define options for parallel call
 2. Yield api caller into the run method.
 3. Get your data up to 3 times faster than traditional queueing approach of fetching.
-4. Use assembled result's array.
+4. Use assembled result's array that keeps original order
 
 **Notes:**
 
 Calls performed based on thread pooling. Result data is unsorted.
-
-**TODO:**
-
-* make result data sorted
 
 ## Install
 

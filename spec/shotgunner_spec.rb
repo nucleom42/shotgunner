@@ -15,11 +15,16 @@ describe Shotgunner::Parallel do
 
       context 'when run with tasks array' do
         let(:tasks_array) do
-          [URI('http://example.com/index.html?count=10'), URI('http://example.com/index.html?count=20')]
+          [URI('https://jsonplaceholder.typicode.com/posts/1'), URI('https://jsonplaceholder.typicode.com/posts/2')]
         end
 
         it 'returns result array' do
           expect(object.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) }.count).to eq 2
+        end
+
+        it 'keeps original order' do
+          expect(klass.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) }
+                   .map{|s| JSON.parse(s)}.map{|h| h["id"]}).to eq [1, 2]
         end
 
         it 'keeps tasks_array' do
@@ -43,11 +48,16 @@ describe Shotgunner::Parallel do
 
       context 'when run with tasks array' do
         let(:tasks_array) do
-          [URI('http://example.com/index.html?count=10'), URI('http://example.com/index.html?count=20')]
+          [URI('https://jsonplaceholder.typicode.com/posts/1'), URI('https://jsonplaceholder.typicode.com/posts/2')]
         end 
         
         it 'returns result array' do
           expect(klass.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) }.count).to eq 2
+        end
+        
+        it 'keeps original order' do
+          expect(klass.run(tasks: tasks_array){ |uri| Net::HTTP::get(uri) }
+                   .map{|s| JSON.parse(s)}.map{|h| h["id"]}).to eq [1, 2]
         end
         
         it 'keeps tasks_array' do
