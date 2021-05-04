@@ -17,7 +17,7 @@
 
 **Notes:**
 
-Calls performed based on thread pooling. Since 0.1.5 result data is keeps original order given from the tasks array.
+Calls performed based on thread pooling. Since 0.1.5 result data keeps original order given from the tasks array.
 
 ## Install
 
