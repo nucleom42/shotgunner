@@ -26,6 +26,15 @@ Calls performed based on thread pooling. Since 0.1.5 result data keeps original 
 gem install shotgunner
 
 ```
+
+## Rails
+
+```ruby
+
+gem 'shotgunner', require: 'shotgunner/parallel'
+
+```
+
 ## Examples
 
 ```ruby
