@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    shotgunner (0.1.8)
+    shotgunner (1.0.1)
 
 GEM
   remote: http://rubygems.org/

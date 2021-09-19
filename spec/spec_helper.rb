@@ -3,4 +3,5 @@
 
 require 'rspec'
 require 'shotgunner/parallel'
+require 'array'
 require 'pry'

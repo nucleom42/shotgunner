@@ -55,6 +55,11 @@ class Service
 
       ## do everything you need with received data array
       data.map { |j| JSON.parse(j) }
+      
+      ## same is also could be simplified withing traditional map approach
+      urls_to_be_fetched.pmap do |uri|
+        JSON.parse(Net::HTTP.get(uri))
+      end
     end
   end
 end
