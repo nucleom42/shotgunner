@@ -17,7 +17,10 @@
 
 **Notes:**
 
-Calls performed based on thread pooling. Since 0.1.5 result data keeps original order given from the tasks array.
+* Calls performed based on thread pooling. 
+* Since 0.1.5 result data keeps original order given from the tasks array.
+* Since 1.0.1 presented traditional map approach which utilize same library.
+pmap method appears in the array object.
 
 ## Install
 
