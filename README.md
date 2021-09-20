@@ -34,7 +34,7 @@ gem install shotgunner
 
 ```ruby
 
-gem 'shotgunner', require: 'shotgunner/parallel'
+gem 'shotgunner', require: %w[shotgunner/parallel array]
 
 ```
 
@@ -67,4 +67,17 @@ class Service
   end
 end
 
+# execution time test pmap
+pry(main)> start_time = Time.now
+pry(main)> [1,2,3,4].pmap{|i| sleep(1); i}
+pry(main)> pp Time.now - start_time
+
+=> 1.002188
+
+# execution time test map
+pry(main)> start_time = Time.now
+pry(main)> [1,2,3,4].map{|i| sleep(1); i}
+pry(main)> pp Time.now - start_time
+
+=> 4.018127
 ```
