@@ -21,7 +21,9 @@
 * Calls performed based on thread pooling. 
 * Since 0.1.5 result data keeps original order given from the tasks array.
 * Since 1.0.1 presented traditional map approach which utilize same library.
-'pmap' method appears in the array object.
+**pmap** method appears in the array object.
+* Use it carefully! It is mainly optimized for async task execution. It doesn't optimize hardware resources!
+* Before usage it is strongly recommended to "benchmark" result. See example below.
 
 ## Install
 
@@ -81,4 +83,15 @@ pry(main)> [1,2,3,4].map{|i| sleep(1); i}
 pry(main)> pp Time.now - start_time
 
 => 4.018127
+
+# benchmark of fetching external url
+pry(main)> Benchmark.bm do |x|
+pry(main)*   x.report("pmap:") { 100.times.map{|i| URI("https://jsonplaceholder.typicode.com/posts/#{i}")}.pmap{|uri| JSON.parse(Net::HTTP.get(uri)) } }
+pry(main)*   x.report("map:") { 100.times.map{|i| URI("https://jsonplaceholder.typicode.com/posts/#{i}")}.map{|uri| JSON.parse(Net::HTTP.get(uri)) } }
+pry(main)* end
+
+       user     system      total        real
+pmap:  0.445716   0.065193   0.510909 (  4.736261)
+map:  0.439792   0.074125   0.513917 ( 19.288908)
+
 ```
